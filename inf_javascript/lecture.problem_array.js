@@ -141,6 +141,9 @@ console.log(animals.indexOf("Baboon"))
 console.log(animals.indexOf("Bison"))
 let animalsB = animals.slice(8,16)
 console.log(animalsB)
+// 다른방법으로도 해보겠습니다.
+let animals_B = animals.slice(animals.indexOf("Baboon"),animals.indexOf("Bison"))
+console.log(animals_B)
 
 
 
