@@ -30,21 +30,21 @@
 //  리턴 해주세요.
 //  년도,월,일 인자를 전부 받았을 경우 → 년도,월,일을 조합해서 "1234/5/6" 과 같은 형식의 문자열을
 //  리턴 해주세요.
-function meetAt(year,month,date){
-    let todayYear = year;
-    let todayMonth = month;
-    let todayDate = date;
-    if(todayDate){
-        return `${todayYear}/ ${todayMonth}/${todayDate}`;
-    }
-    if(todayMonth){
-        return `${todayYear}년 ${todayMonth}월`;
-    }
-    if(todayYear){
-        return `${todayYear}년`;
-    }
-}
-console.log(meetAt(1234))
+// function meetAt(year,month,date){
+//     let todayYear = year;
+//     let todayMonth = month;
+//     let todayDate = date;
+//     if(todayDate){
+//         return `${todayYear}/ ${todayMonth}/${todayDate}`;
+//     }
+//     if(todayMonth){
+//         return `${todayYear}년 ${todayMonth}월`;
+//     }
+//     if(todayYear){
+//         return `${todayYear}년`;
+//     }
+// }
+// console.log(meetAt(1234))
 
 // findSmallestElement 함수를 구현해 주세요.
 // findSmallestElement 의 arr 인자는 숫자 값으로만 이루어진 배열입니다.
@@ -53,20 +53,20 @@ console.log(meetAt(1234))
 // 예를 들어, 다음과 같은 배열이 인자(input)으로 들어왔다면 0이 리턴 되어야 합니다.
 // 이용되는 배열
 // [100,200,3,0,2,1]
-function findSmallestElement(arr){
-    let result = arr[0];
-    if(arr.length ===0){
-        return 0
-    }
-    for(i=1; i<arr.length; i++){
-        if(result > arr[i]){
-            result = arr[i]
-        }
-    }
-    return result
-}
-let arrEX =[100,200,3,0,2,1];
-console.log(findSmallestElement(arrEX))
+// function findSmallestElement(arr){
+//     let result = arr[0];
+//     if(arr.length ===0){
+//         return 0
+//     }
+//     for(i=1; i<arr.length; i++){
+//         if(result > arr[i]){
+//             result = arr[i]
+//         }
+//     }
+//     return result
+// }
+// let arrEX =[100,200,3,0,2,1];
+// console.log(findSmallestElement(arrEX))
 
 // 돈을 매개변수로 받으면 몇개의 지폐와 동전이 필요한지 최소 개수를 계산해주는 함수를 만드시오
 // 출력예 )
@@ -77,14 +77,18 @@ console.log(findSmallestElement(arrEX))
 //  1000 X 2
 //  500 X 0
 //  100 X 3
+// console.log(10 ** (moneyString.length - i -1) +"X" + moneyString[i])
 function CalcMoney(money){
     let moneyString = money.toString();
-    for(i=0; i<moneyString.length; i++){
-        
+    for(i=0; i<moneyString.length -2; i++){
+        if(moneyString[i]>=5){
+            console.log(10 ** (moneyString.length - i -1) *5 +"X" +parseInt(moneyString[i]/5))
+            console.log(10 ** (moneyString.length - i -1)  +"X" +moneyString[i] % 5)
+        }
+        else (console.log(10 ** (moneyString.length - i -1) +"X" + moneyString[i]))
     }
 }
-
-
+CalcMoney(57000)
 
 
 
