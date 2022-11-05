@@ -7,6 +7,14 @@
 //5번의 기회를 다쓰면 게임이 끝난다. (더이상 추측 불가, 버튼이 disable)
 // 유저가 1~100 범위 밖에 숫자를 입력하면 알려준다. 기회를 깍지 않는다.
 //유저가 이미 입력한 수자를 또 입력하면 , 알려준다, 기회를 깍지 않는다.
+// const documentRef = useRef(document);
+let num = Math.random() *100 + 1;
+console.log(num);
+let userValue = document.getElementById("user_input");
+console.log(userValue);
+
+
+
 
 
 
