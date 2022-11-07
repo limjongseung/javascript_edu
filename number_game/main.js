@@ -13,13 +13,20 @@ let userValue = document.getElementById("user_input");
 let BtnPlay = document.getElementById("play_btn");
 let resultArea = document.getElementById("result_area")
 let Btnreset = document.getElementById("reset");
+let ChanceArea = document.getElementById("chance_area");
+let chances = 5;
+console.log("정답", num);
 
+ChanceArea.innerHTML = `남은 기회는 ${chances}`;
 BtnPlay.addEventListener("click",play);
 Btnreset.addEventListener("click",reset);
 
 function play(){
+    chances--;
+    ChanceArea.innerHTML = `남은 기회:${chances}`;
     if(userValue.value == num){
         resultArea.textContent = "정답입니다.";
+        BtnPlay.disabled= true;
     } else if (userValue.value > num){
         resultArea.textContent = "Down!!";
     } else if(userValue.value < num){
@@ -28,7 +35,9 @@ function play(){
 }
 
 function reset(){
-
+    userValue.value = "";
+    ChanceArea = "남은 찬스 : 5번";
+    resultArea.textContent = "결과가 나온다";
 }
 
 
