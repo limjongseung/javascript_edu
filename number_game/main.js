@@ -22,6 +22,11 @@ BtnPlay.addEventListener("click",play);
 Btnreset.addEventListener("click",reset);
 
 function play(){
+    if(userValue.value>100 || userValue.value < 1){
+        resultArea.className += "on";
+        resultArea.textContent = "1 부터 100까지 숫자를 입력하세요.";
+        return
+    }
     chances--;
     ChanceArea.innerHTML = `남은 기회:${chances}`;
     if(userValue.value == num){
@@ -32,12 +37,17 @@ function play(){
     } else if(userValue.value < num){
         resultArea.textContent = "UP!!";
     }
+    if (chances <= 0 ){
+        BtnPlay.disabled= true;
+    }
 }
 
 function reset(){
+    chances = 5;
     userValue.value = "";
-    ChanceArea = "남은 찬스 : 5번";
+    ChanceArea.innerHTML = `남은 기회:${chances}`;
     resultArea.textContent = "결과가 나온다";
+    BtnPlay.disabled= false;
 }
 
 
