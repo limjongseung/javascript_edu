@@ -15,7 +15,7 @@ let addBtn = document.getElementById("btn_add");
 let tabs = document.querySelectorAll(".task_tabs div")
 let taskList = [];
 let mode = "all"
-let filiterList = ""
+let filterList = ""
 let horizontalLine = document.getElementById("under_line")
 let horizontalMenus = document.querySelectorAll(".task_tabs .menu")
 // console.log(horizontalLine);
@@ -35,7 +35,7 @@ function horizontalIndicator(e){
 addBtn.addEventListener("click", addTask);
 
 for(let i =1; i<tabs.length; i++){
-    tabs[i].addEventListener("click",function(event){fliter(event)});
+    tabs[i].addEventListener("click",function(event){filter(event)});
 }
 
 
@@ -59,20 +59,20 @@ function render(){
     if(mode == "all"){
         list = taskList;
     } else if (mode =="ongoing" || mode =="done"){
-        list = filiterList;
+        list = filterList;
     } 
     let resultHTML = "";
     for(let i = 0; i<list.length; i++){
         if(list[i].isComplete == true){
-            resultHTML += `    <div class="task">
-            <div class = "task_done">${list[i].taskContent}</div>
+            resultHTML += `<div class="task">
+            <div class = "task_done >${list[i].taskContent}</div>
             <div>
                 <button onclick="toggleComplete('${list[i].id}')">check</button>
                 <button onclick = "deleteTask('${list[i].id}')">delete</button>
             </div>
         </div>`;
         } else {
-            resultHTML += `    <div class="task">
+            resultHTML += `<div class="task">
             <div>${list[i].taskContent}</div>
             <div>
                 <button onclick="toggleComplete('${list[i].id}')">check</button>
@@ -109,23 +109,23 @@ function deleteTask(id){
     render();
 }
 
-function fliter(event){
+function filter(event){
     mode = event.target.id;
-    filiterList = [] ;
+    filterList = [] ;
     console.log("클릭됨", mode);
     if(mode == "all"){
         render();
     } else if(mode=="ongoing"){
         for(let i=0; i<taskList.length; i++){
             if(taskList[i].isComplete == false){
-                filiterList.push(taskList[i]);
+                filterList.push(taskList[i]);
             }
         }
         render();
     }   else if(mode == "done"){
         for(let i = 0; i<taskList.length; i++){
             if(taskList[i].isComplete ==true){
-                filiterList.push(taskList[i]);
+                filterList.push(taskList[i]);
             }
         }
         render();

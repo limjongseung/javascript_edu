@@ -1,8 +1,14 @@
+/* 폰트 jua */
+@import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
+/* font-family: 'Jua', sans-serif; */
+
+
 body{
     margin: 0;
     background-image:url(../todo_list/img/4882066.jpg) ;
     background-repeat: no-repeat;
     background-size: cover;
+    font-family: 'Jua', sans-serif;
 }
 .container {
      background: white;
@@ -23,13 +29,14 @@ body{
     }
     #under_line{
         height: 4px;
-        background: lightskyblue;
+        /* background: lightskyblue; */
         position: absolute;
         width: 60px;
         left: 0;
-        top: 56px;
+        top: 70px;
         padding: 0px;
         transition: all 0.5s;
+        /* border-radius: 50%; */
     }
     .task {
         display: flex;
@@ -43,7 +50,14 @@ body{
     .task_tabs div{
         cursor: pointer;
     }
-
+    .task_default{
+        text-align: center;
+        font-size: 30px;
+        /* text-decoration: underline; */
+    }
+.menu{
+    font-size: 20px;
+}
 
 
 
