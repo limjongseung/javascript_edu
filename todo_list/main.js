@@ -26,8 +26,7 @@ menu.addEventListener("click", (e)=> horizontalIndicator(e)));
 function horizontalIndicator(e){
     horizontalLine.style.left = e.currentTarget.offsetLeft +"px";
     horizontalLine.style.width = e.currentTarget.offsetWidth +"px";
-    horizontalLine.style.top = e.currentTarget.offsetHeight +"px";
-
+    horizontalLine.style.top = e.currentTarget.offsetHeight +"px";ㄴ
 }
 //만약 아무것도 없다면 alert창을 출력한다.
 // if (taskInput == "" || null || undefined || 0 || NaN){
