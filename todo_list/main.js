@@ -16,15 +16,31 @@ let tabs = document.querySelectorAll(".task_tabs div")
 let taskList = [];
 let mode = "all"
 let filiterList = ""
+let horizontalLine = document.getElementById("under_line")
+let horizontalMenus = document.querySelectorAll(".task_tabs .menu")
+// console.log(horizontalLine);
+// console.log(horizontalMenus);
+
+horizontalMenus.forEach((menu)=>
+menu.addEventListener("click", (e)=> horizontalIndicator(e)));
+function horizontalIndicator(e){
+    horizontalLine.style.left = e.currentTarget.offsetLeft +"px";
+    horizontalLine.style.width = e.currentTarget.offsetWidth +"px";
+    horizontalLine.style.top = e.currentTarget.offsetHeight +"px";
+
+}
+//만약 아무것도 없다면 alert창을 출력한다.
+// if (taskInput == "" || null || undefined || 0 || NaN){
+//     alert("할일 앱에 할일을 먼저 적어주세요~");
+// } 
 addBtn.addEventListener("click", addTask);
 
 for(let i =1; i<tabs.length; i++){
-    tabs[i].addEventListener("click",function(event){fliter(event)})
-
+    tabs[i].addEventListener("click",function(event){fliter(event)});
 }
 
 
-console.log(tabs);
+// console.log(tabs);
 function addTask(){
     // console.log("click")
     let task = {
@@ -34,7 +50,9 @@ function addTask(){
     }
     taskList.push(task);
     render();
-    console.log(taskList);
+    // 사용자가 적은 인풋값은 다시 리셋 설정
+    taskInput.value = "";
+    // console.log(taskList);
 }
 
 function render(){
@@ -119,7 +137,6 @@ function fliter(event){
 function randomIDGenerate(){
     return Math.random().toString(36).substr(2, 9);
 }
-// 딜리트키 만들기
 
 
 
