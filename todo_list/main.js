@@ -26,7 +26,7 @@ menu.addEventListener("click", (e)=> horizontalIndicator(e)));
 function horizontalIndicator(e){
     horizontalLine.style.left = e.currentTarget.offsetLeft +"px";
     horizontalLine.style.width = e.currentTarget.offsetWidth +"px";
-    horizontalLine.style.top = e.currentTarget.offsetHeight +"px";ㄴ
+    horizontalLine.style.top = e.currentTarget.offsetHeight +"px";
 }
 //만약 아무것도 없다면 alert창을 출력한다.
 // if (taskInput == "" || null || undefined || 0 || NaN){
@@ -47,11 +47,15 @@ function addTask(){
         taskContent : taskInput.value,
         isComplete : false
     }
-    taskList.push(task);
-    render();
-    // 사용자가 적은 인풋값은 다시 리셋 설정
-    taskInput.value = "";
-    // console.log(taskList);
+    if(!taskInput.value){
+        alert("할일을 입력해주세요")
+        return
+    } else{
+        taskList.push(task);
+        render();
+        // 사용자가 적은 인풋값은 다시 리셋 설정
+        taskInput.value = "";
+    }
 }
 
 function render(){
@@ -65,10 +69,10 @@ function render(){
     for(let i = 0; i<list.length; i++){
         if(list[i].isComplete == true){
             resultHTML += `<div class="task">
-            <div class = "task_done >${list[i].taskContent}</div>
+            <div class= "task_done">${list[i].taskContent}</div>
             <div>
                 <button onclick="toggleComplete('${list[i].id}')">check</button>
-                <button onclick = "deleteTask('${list[i].id}')">delete</button>
+                <button onclick="deleteTask('${list[i].id}')">delete</button>
             </div>
         </div>`;
         } else {

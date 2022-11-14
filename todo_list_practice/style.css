@@ -1,0 +1,49 @@
+body{
+    background: url(../todo_list_practice/smoke_photo.png) no-repeat;
+    background-image: cover;
+    margin: 0;
+}
+.container { 
+    background:white;
+    min-height: 100vh;
+}
+.container h1{
+    font-size: 80px;
+    font-weight: bold;
+}
+.task_tabs{
+    position: relative;
+    display: flex;
+    max-width: 400px;
+    justify-content: space-around;
+}
+.task_tabs .menus{
+    cursor: pointer;
+    width: 30%;
+    text-align: center;
+    font-size: 25px;
+    font-weight: 700;
+}
+#under_line{
+    position: absolute;
+    left: 9px;
+    top: 38px;
+    width: 117px;
+    height: 4px;
+    background: #5d9ee5;
+    transition: all 0.25s;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

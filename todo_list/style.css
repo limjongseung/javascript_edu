@@ -45,7 +45,7 @@ body{
     }
     .task_done {
         text-decoration: line-through;
-        transition: all  0.25s;
+        /* transition: all  0.25s; */
     }
     .task_tabs div{
         cursor: pointer;
