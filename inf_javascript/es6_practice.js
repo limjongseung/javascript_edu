@@ -26,39 +26,46 @@
 //* calculate({a:1,b:2,c:3})
 
 // ! 4. 다음 문제에 정답이 true가 나오게 하시오
-//?  let name="noona store"
-//?  let fruits = ["banana","apple","mango"]
-//?  let address={
-//?      country:"Korea",
-//?      city:"Seoul"}
-//?     function findStore(obj){
-//?      return name="noona store" && this.city == "Seoul"}
-//?  console.log(findStore({name,fruits,address}))
+  let name="noona store"
+  let fruits = ["banana","apple","mango"]
+  let address={
+      country:"Korea",
+      city:"Seoul"}
+      function findStore(obj){
+        let {name,address:{city}} = obj
+        console.log(obj);
+         return name=="noona store" && city=="Seoul"
+     }
+     //!오브젝트 안에 오브젝트는 address:{city} 다음과 같이 선택이 가능하다
+    //  findStore(name, address);
+//   console.log(findStore({name,fruits,address}))s
 
 //! 5. 다음과같이 프린트되게 코드를 바꾸시오
-//? function getNumber(){
-//?     let array = [1,2,3,4,5,6];   // 여기서부터 바꾸시오
-//?     let first,third,forth = array[0], array[2], array[3]
-//?     return {first,third,forth}}
-//?     console.log(getNumber()) //  결과값 { first: 1, third: 3, forth: 4 }
+// let getNumber = ()=>{
+//     let array = [1,2,3,4,5,6];
+//     let [first,,third,fourth] = array;
+    // 참고 어레이에 건너뛰고싶은 부분이 있다면 , 를 이용해 그자리를 비울 수 있다.
+//     return { first,third,fourth};
+// }
+// console.log(getNumber());
 
 // ! 6. 다음의 결과가 true가 되게 하시오
-//? function getCalendar(first, ...rest) {
-//?     return (
-//?       first === "January" &&
-//?       rest[0] === "Febuary" &&
-//?       rest[1] === "March" &&
-//?       rest[2] === undefined
-//?     );}
-//?     console.log(getCalendar("January","Febuary","March")); // 여기를 바꾸시오
+//  function getCalendar(first, ...rest) {
+//      return (
+//        first === "January" &&
+//        rest[0] === "February" &&
+//        rest[1] === "March" &&
+//        rest[2] === undefined
+//      );}
+//      console.log(getCalendar("January","February","March")); // 여기를 바꾸시오
 
 //! 7. 두 어레이들중 최소값을 찾는 함수를 완성하시오
-//? function getMinimum(){
-//?     let a= [45,23,78]
-//?     let b = [54,11,9]
-//?     return Math.min()}
-//?     // getMinimum();
-//?     console.log(getMinimum())
+// function getMinimum(){
+//     let a= [45,23,78]
+//     let b = [54,11,9]
+//     return Math.min(...a,...b)}
+//     // getMinimum();
+//     console.log(getMinimum());
 
 //! 8. 다음의 함수를 화살표 함수로 바꾸시오
 // function sumNumber() {
@@ -68,11 +75,11 @@
 //     };
 //     return sum(40, 10);}
 
-// ? let sumNumber = () => {
-// ?     const sum = (a, b) =>{a+b};
-// ?     return sum(40,10);
-// ? }
-// ? console.log(sumNumber());
+//  let sumNumber = () => {
+//      const sum = (a, b) => a+b ;
+//      return sum(40,10);
+//  }
+//  console.log(sumNumber());
 
 //! 9. 다음함수를 화살표 함수로 바꾸시오
 // function sumNumber() {
