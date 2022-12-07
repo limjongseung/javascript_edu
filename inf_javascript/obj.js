@@ -28,8 +28,9 @@ class TV extends product{
 
 let tv1 = new TV("noona'tv",200,"56inch")
 console.log(tv1);
+console.log(tv1.price)
 let tv2 = new TV("ultraTv",300,"28inch")
-console.log(tv2.name);
+
 
 let tv3 ={
     name:"ultra'tv",
@@ -42,7 +43,6 @@ class AC extends product {//상속
 class laptop extends product{
     weight = ""
 }
-tv1.setPrice(-100);
 console.log(tv1.price);
 console.log(tv1.getPrice(),tv2.name);
 
