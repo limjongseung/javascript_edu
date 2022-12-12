@@ -6,10 +6,17 @@ const getlatestNews =async ()=>{
     let header = new Headers({"x-api-key" : "amG_c3TcHIIbTrzuK9yC9-sYhYoXSypke4t5OCni29s"})
     let response = await fetch(url,{headers:header}) //ajax, ftch
     let data = response.json();
-    console.log(data);
+    news = data.articles;
 
-    console.log(data.articles);
+    render();
+
 
 };
+
+const render = ()=>{
+    let newsHTML = "";
+
+    document.getElementById("")
+}
 
 getlatestNews();
