@@ -3,6 +3,8 @@ let menus = document.querySelectorAll(".menus button");
 menus.forEach(menu=> menu.addEventListener("click", (event)=>{
     getNewsByTopic(event);
 }))
+let searchBtn = document.getElementById("search_button")
+
 const getlatestNews =async ()=>{
     let url = new URL("https://api.newscatcherapi.com/v2/latest_headlines?countries=US&topic=sport&page_size=10");
 
@@ -30,7 +32,21 @@ const getNewsByTopic = async (event)=>{
     news = data.articles
     render();
 }
-
+const getNewsBykeyword = async()=>{
+    //1검색키워드 읽어오기
+    //2. url에 검색 키워 부치기
+    //3. 헤더 준비
+    //url 부르기
+    //5. 데이터 가져오기
+    //6 데이터 보여주기
+    let keyword = document.getElementById('search_input').value;
+    console.log(keyword);
+    let url = new URL(`https://api.newscatcherapi.com/v2/search?q=${keyword}&from='2021/12/15'&countries=CA&page_size=1`);
+    let response = await  fetch(url, {headers: header});
+    let data = await response.json();
+    news = data.articles
+    render();
+}
 
 const render  = () => {
     let newsHTML = "";
@@ -51,6 +67,6 @@ const render  = () => {
     document.getElementById("news_board").innerHTML = newsHTML;
 };
 
-
+searchBtn.addEventListener("click",getNewsBykeyword)
 
 getlatestNews();
