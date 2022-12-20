@@ -8,15 +8,25 @@ let url ="";
 // 각 함수에서 필요하 url를 만든다
 //api 호출 함수를 부른다.
 const getNews = async()=>{
-    let header = new Headers({
-        "x-api-key" : "UkVGZfSI9CyRG1ceVd18H8HW8BwsyHIt6z5QKYgeuco"
-    });
-    let response = await  fetch(url, {headers: header}); //ajax, ftch
-    let data = await response.json();
-    console.log(data) ;
-    news = data.articles
-    console.log(news);
-    render();
+    try{
+        let header = new Headers({
+            "x-api-key" : "UkVGZfSI9CyRG1ceVd18H8HW8BwsyHIt6z5QKYgeuco"
+        });
+        let response = await  fetch(url, {headers: header}); //ajax, ftch
+        let data = await response.json();
+        if(response.status ==  200){
+            if(data.total_hits == 0){
+                throw new Error("검색된 결과값이 없습니다.")
+            }
+            news = data.articles
+            render();
+        } else{
+            throw new Error(data.message);
+        }
+    } catch(error){
+        errorRender(error.message);
+    }
+   
 }
 const getlatestNews =async ()=>{
     url = new URL("https://api.newscatcherapi.com/v2/latest_headlines?countries=KR&topic=sport&page_size=10");
@@ -62,6 +72,10 @@ const render  = () => {
     document.getElementById("news_board").innerHTML = newsHTML;
 };
 
+const errorRender=  (message)=>{
+    let errorHTML = `<div class="alert alert-danger" role="alert">${message}</div>`
+    document.getElementById("news_board").innerHTML = errorHTML;
+}
 searchBtn.addEventListener("click",getNewsBykeyword)
 
 getlatestNews();
