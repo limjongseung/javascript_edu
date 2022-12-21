@@ -1,4 +1,6 @@
 let news = [];
+let page = 1;
+let totalPage = 0;
 let menus = document.querySelectorAll(".menus button");
 menus.forEach(menu=> menu.addEventListener("click", (event)=>{
     getNewsByTopic(event);
@@ -10,7 +12,7 @@ let url ="";
 const getNews = async()=>{
     try{
         let header = new Headers({
-            "x-api-key" : "UkVGZfSI9CyRG1ceVd18H8HW8BwsyHIt6z5QKYgeuco"
+            "x-api-key" : "HZDRX1CWfXGOk9S6LoDnVzSGbyz4cU2bosXFUFLyZaY"
         });
         let response = await  fetch(url, {headers: header}); //ajax, ftch
         let data = await response.json();
@@ -18,8 +20,12 @@ const getNews = async()=>{
             if(data.total_hits == 0){
                 throw new Error("검색된 결과값이 없습니다.")
             }
+            console.log("받는 데이터",data);
             news = data.articles
+            totalPage = data.total_pages;
+            page = data.page;
             render();
+            PageNation();
         } else{
             throw new Error(data.message);
         }
@@ -29,7 +35,7 @@ const getNews = async()=>{
    
 }
 const getlatestNews =async ()=>{
-    url = new URL("https://api.newscatcherapi.com/v2/latest_headlines?countries=KR&topic=sport&page_size=10");
+    url = new URL("https://api.newscatcherapi.com/v2/latest_headlines?countries=US&topic=sport&page_size=10");
     getNews();
   
 };
@@ -37,7 +43,7 @@ const getlatestNews =async ()=>{
 const getNewsByTopic = async (event)=>{
     console.log("클릭됨", event.target.textContent);
     let topic  = event.target.textContent.toLowerCase();
-    url = new URL(`https://api.newscatcherapi.com/v2/latest_headlines?countries=KR&topic=${topic}&page_size=10`);
+    url = new URL(`https://api.newscatcherapi.com/v2/latest_headlines?countries=US&topic=${topic}&page_size=10`);
     getNews();
 
 }
@@ -76,6 +82,30 @@ const errorRender=  (message)=>{
     let errorHTML = `<div class="alert alert-danger" role="alert">${message}</div>`
     document.getElementById("news_board").innerHTML = errorHTML;
 }
-searchBtn.addEventListener("click",getNewsBykeyword)
+const PageNation  = ()=>{
+    let pagenationHTML = '';
+    // total_page
+    //page
+    //page group
+    let page_group = Math.ceil(page/5);
+    //last
+    let last = page_group*5;
+    console.log(page_group);
+    //first
+    let first = last -4;
 
+    for(let i = first; i<=last; i++){
+        pagenationHTML += `<li class="page-item"><a class="page-link" href="#">${i}</a></li>`
+    }
+    document.querySelector(".pagination").innerHTML = pagenationHTML;
+
+    //first~last 페이지 프린트
+    //
+}
+
+
+
+
+
+searchBtn.addEventListener("click",getNewsBykeyword)
 getlatestNews();
