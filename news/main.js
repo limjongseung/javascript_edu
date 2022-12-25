@@ -14,7 +14,7 @@ let url = "";
 const getNews = async () => {
 	try {
 		let header = new Headers({
-			"x-api-key": "HZDRX1CWfXGOk9S6LoDnVzSGbyz4cU2bosXFUFLyZaY",
+			"x-api-key": "uA1xEyZhp5PFZYibk1CT1Vej8VILa_Gykx3eV0w7xFM",
 		});
 		url.searchParams.set("page", page); // & page
 		// console.log("url은" ,url);
@@ -90,18 +90,52 @@ const errorRender = (message) => {
 	document.getElementById("news_board").innerHTML = errorHTML;
 };
 const PageNation = () => {
-	let pagenationHTML = `<li class="page-item">
+	let pagenationHTML = `
+	<li class="page-item">
+	<a class="page-link" href="#" aria-label="Previous" onclick = "moveToPage(1)>
+	  <span aria-hidden="true">&laquo;</span>
+	</a>
+  </li>
+	<li class="page-item">
     <a class="page-link" href="#" aria-label="Previous" onclick="moveToPage(${
 		page - 1
 	})">
-      <span aria-hidden="true">&laquo;</span>
+      <span aria-hidden="true">&lt;</span>
     </a>
     </li>`;
 	// total page 3 일 경우 3개의 페이지만 프린트 하는 법 last, first
-	// total_page
-	//page
-	//page group
-	let page_group = Math.ceil(page / 5);
+	if(totalPage < 3 ){
+		let page_group = Math.ceil(page / 5);
+	//last
+	let last = page_group * 3;
+	console.log(page_group);
+	//first
+	let first = last - 2;
+
+	// << >> 이버튼 만들어 주기 맨 처음, 맨끝으로 가는 버튼 만들기
+	//내가 그룹 일때  << 이 버튼이 없다.
+	//내가 마지막 그룹일때 >>  이 버튼이 없다.
+
+	for (let i = first; i <= last; i++) {
+		pagenationHTML += `<li class="page-item ${
+			page == i ? "active" : ""
+		}"><a class="page-link" href="#" onclick = "moveToPage(${i})">${i}</a></li>`;
+	}
+	pagenationHTML += `<li class="page-item">
+    <a class="page-link" href="#" aria-label="Next" onclick="moveToPage(${
+		page + 1
+	})">
+      <span aria-hidden="true">&gt;</span>
+    </a>
+  </li>
+  <li class="page-item">
+  <a class="page-link" href="#" aria-label="Next">
+	<span aria-hidden="true">&raquo;</span>
+  </a>
+</li>`;
+	document.querySelector(".pagination").innerHTML = pagenationHTML;
+	} else{
+		let page_group = Math.ceil(page / 5);
 	//last
 	let last = page_group * 5;
 	console.log(page_group);
@@ -123,12 +157,16 @@ const PageNation = () => {
 	})">
       <span aria-hidden="true">&gt;</span>
     </a>
-  </li>`;
+  </li>
+  <li class="page-item">
+  <a class="page-link" href="#" aria-label="Next" onclick = "moveToPage(${totalPage})>
+	<span aria-hidden="true">&raquo;</span>
+  </a>
+</li>`;
 	document.querySelector(".pagination").innerHTML = pagenationHTML;
-
-	//first~last 페이지 프린트
-	//
+	}	
 };
+console.log("총페이지는",totalPage);
 const moveToPage = (pageNumber) => {
 	// 1. 이동하고 싶은 페이지를 알아야겠지
 	page = pageNumber;
