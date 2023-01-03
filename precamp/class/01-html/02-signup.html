@@ -7,32 +7,70 @@
     <link rel="stylesheet" href="02-css.css">
 
     <style>
-        .pw{
-            border: 1px solid blue;
+        *{box-sizing: border-box;}
+        .form_signup{
+            margin: 50px auto 0 ;
+            padding: 72px 100px;
+            width: 670px;
+            height: 960px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            border: 1px solid #AACDFF;
+            border-radius:20px;
+            box-shadow: 7px 7px 39px rgba(0, 104, 255, 0.25);
         }
+
+        h2{
+            color: #0068FF;
+            font-size: 32px;
+            margin-bottom: 60px;
+        }
+        label{
+            color: #797979;
+            margin-bottom: 30px;
+        }
+        input{
+            width: 100%;
+            border: none;
+            border-bottom: 1px solid #CFCFCF;
+            margin-bottom: 20px;
+        }
+        .gender_box{display: flex;width: 100%; justify-content:space-around;margin-bottom: 50px;}
+        .gender_box label{margin-bottom: 0;}
+        .gender_box input{margin-bottom: 0;width: unset;}
+        .ag{margin-bottom: 20px;}
+        .ag input{width: unset;}
+        button{display: flex; margin: 0 auto;color: #0068FF;padding: 20px 200px;background: none; border: 1px solid #0068ff;border-radius: 10px;}
     </style>
     <title>회원가입</title>
 </head>
 <body>
-    <h2>회원가입</h2>
-    <input type="text" placeholder="이메일을 입력해 주세요."class="email" > <br><br>
-    <input type="text" placeholder="이름을 입력해 주세요."> <br><br> 
-    <input type="password" placeholder="비밀번호를 입력해 주세요." class="pw"> <br><br>
-    <input type="password" placeholder="비밀번호를 입력해 주세요."> <br> <br>
-
-    <select name="" id="">
-        <option value="" disabled="true" selected="true" >지역을 선택하세요</option>
-        <option value="">서울</option>
-        <option value="">대구</option>
-        <option value="">부산</option>
-    </select>
-    <input type="radio" id="radio_btn_male" name="gender">
-    <label for="radio_btn_male"> 여성</label>
-    <input type="radio" id="radio_btn_female" name="gender">
-    <label for="radio_btn_female">남성</label> <br> <br>
-    <input type="checkbox"> <span>이용약관 어쩌구에 완전 동의합니다.</span>
-    <hr>
-    <button>가입하기</button>
+    <div class="form_signup">
+        <h2>회원 가입을 위해<br>정보를 입력해주세요</h2>
+        <label for="email">*이메일</label>
+        <input type="text" name="email">
+        <label for="name">*이름</label>
+        <input type="text" placeholder="" name="name"> 
+        <label for="pw">*비밀번호</label>        
+        <input type="password" placeholder="" class="pw">
+        <label for="pw">*비밀번호 확인</label>
+        <input type="password" placeholder="">
+        <div class="gender_box">
+            <div class="gender_female">
+                <input type="radio" id="radio_btn_male" name="gender">
+                <label for="radio_btn_male"> 여성</label>
+            </div>
+            <div class="gender_male">
+                <input type="radio" id="radio_btn_female" name="gender">
+                <label for="radio_btn_female">남성</label> 
+            </div>
+        </div>
+        <div class="ag">
+            <input type="checkbox"> <span>이용약관 개인정보 수집 및 이용,이메일 활용 선택에 모두 동의합니다.</span>
+        </div>
+        <button>가입하기</button>
+    </div>
     
 </body>
 </html>
