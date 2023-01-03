@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>boxmodel</title>
+    <style>
+        *{box-sizing: border-box;}
+        div{
+            width: 80px;
+            height: 90px;padding: 10px;
+            border: 1px solid red;
+        }
+        .contentBox{
+            box-sizing: border-box;
+        }
+        .borderBox{
+            box-sizing: content-box;
+        }
+    </style>
+</head>
+<body>
+    <div class="contentBox">박스1</div>
+    <div>박스2</div>
+    <div class="borderBox">박스2</div>
+    
+</body>
+</html>
