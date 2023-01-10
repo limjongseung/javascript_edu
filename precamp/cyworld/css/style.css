@@ -13,4 +13,31 @@
 .left_body_header { width: 100%; display: flex; flex-direction: column; } 
 .left_body_header_gray { width: 148px; height: 133px; background: gray;} 
 .left_body_header_line { border-top: 1px dotted black; margin: 12px 0;  } 
-.wrapper_right { width: 524px; height: 472px; background: violet; } 
+.wrapper_right { width: 524px; height: 472px;
+    display: flex;
+     flex-direction: column;
+     justify-content: flex-end;
+     padding-left: 5px;
+ } 
+.wrapper_right_header{
+    width: 510px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 0 14px;
+}
+.wrraper_right_body{
+    width: 510px;
+    height: 445px;
+    border: 1px solid gray;
+    border-radius: 15px;
+    background-color: white;
+}
+.right_header_title, .right_header_setting{
+    color: #55B2E4;
+    font-size: 9px;
+}
+.right_header_title{
+    font-size: 16px;
+}
