@@ -56,3 +56,52 @@ if(0){
 }
 // VM973:4 틀렸습니다.
 // undefined
+// if 문 실습2
+
+const profile={
+    name:"철수",
+}
+// undefined
+const profile={
+    name:"철수",
+}
+// undefined
+const profile={
+    name:"철수",
+    age:12,
+    school : "다람쥐초등학교"
+}
+// undefined
+// undefined
+if(profile.age >= 20){
+    console.log("성인입니다.")
+} else if(profile.age >= 8 && profile.age <=19){
+    console.log("학생입니다.")
+} else {console.log("어린이입니다.");}
+// VM2050:4 학생입니다.
+// undefined
+if(profile.age >= 20){
+    console.log("성인입니다.")
+} else if(profile.age >= 8 && profile.age <=19){
+    console.log("학생입니다.")
+} else if(profile.age >0) {console.log("어린이입니다.");}
+// VM2164:4 학생입니다.
+// undefined
+if(profile.age >= 20){
+    console.log("성인입니다.")
+} else if(profile.age >= 8 && profile.age <=19){
+    console.log("학생입니다.")
+} else if(profile.age >0) {console.log("어린이입니다.");
+                          }else {}
+// VM2185:4 학생입니다.
+// undefined
+if(profile.age >= 20){
+    console.log("성인입니다.")
+} else if(profile.age >= 8 && profile.age <=19){
+    console.log("학생입니다.")
+} else if(profile.age >0) {console.log("어린이입니다.");
+                          }else {
+    console.log("잘못입력하셨습니다.");
+                          }
+VM2534:4 학생입니다.
+// undefined
