@@ -5,6 +5,7 @@
     <script src="https://kit.fontawesome.com/3a502c66dc.js" crossorigin="anonymous"></script>
     <!-- <script src=""></script> -->
     <link rel="stylesheet" href="./css/style.css">
+    <script src="/precamp/cyworld/index.js"></script>
 </head>
 <body>
     <div class="background">
@@ -59,8 +60,13 @@
                         </div>
                     </div>
                     <div class="wrraper_right_body">
-                        <iframe src="/precamp/cyworld/jukebox.html" frameborder="0"></iframe>
+                        <iframe id="contentFrame" src="/precamp/cyworld/jukebox.html" frameborder="0"></iframe>
                     </div>
+                </div>
+                <div class="navigation">
+                    <div class="navigation_item" id = "menuHom" onclick="menuHom()">홈</div>
+                    <div class="navigation_item" id="menuJukebox" onclick="menuJukebox()">쥬크박스</div>
+                    <div class="navigation_item" id="menuGame" onclick="menuGame()">게임</div>
                 </div>
             </div>
         </div>
