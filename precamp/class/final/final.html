@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <title>final</title>
+    <link rel="stylesheet" href="final.css">
+    <script src="final.js"></script>
+</head>
+<body>
+    <div class="final_wrap">
+        <h3 class="final_title">코드캠프 회원가입</h3>
+        <div class="final_con">
+            <div class="input_email">
+                <input type="email" id="input_email" placeholder="이메일을 입력해주세요">
+            </div>
+            <div class="input_name">
+                <input type="name" id="input_name" placeholder="이름을 입력해주세요">
+            </div>
+            <div class="input_password">
+                <input type="password" id="input_password" placeholder="비밀번호를 입력해 주세요.">
+            </div>
+            <div class="input_password_re">
+                <input type="password" id="input_password_re" placeholder="비밀번호를 다시 입력해 주세요.">
+            </div>
+            <div class="input_tel">
+                <input type="text" id="tel1" class="tel" maxlength="3" onkeyup="FocusTel1()"> - <input type="text" id="tel2" class="tel" maxlength="4"> - <input type="text" id="tel3" class="tel" maxlength="4">
+            </div>
+            <div class="number_submit">
+                <div class="token_box">
+                    <span id="token" class="token">00000</span>
+                <div class="btn_submit_box">
+                    <button id="btn_submit" class="btn_submit">인증번호 전송</button>
+                </div>
+            </div>
+                <div class="btn_complete-box">
+                    <div class="timer">
+                        3:00
+                    </div>
+                 <div class="btn_complete_box">
+                    <button id="btn_complete" class="btn_complete">인증 완료</button>
+                 </div>
+                </div>
+                <div class="local_box">
+                    <select name="local" id="local"> 
+                        <option value="">지역을 선택하세요</option>
+                        <option  value="서울">서울</option>
+                        <option  value="경기">경기</option></select>
+                </div>
+                <div class="gender_box">
+                    <input type="radio" name="gender">
+                    <label for="gender">여성</label>
+                    <input type="radio"name="gender">
+                    <label for="gender">남성</label>
+                </div>
+                <div class="register_box">
+                    <button id="register" class="register">가입하기</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+</body>
+</html>
