@@ -22,13 +22,13 @@
                 <input type="password" id="input_password_re" placeholder="비밀번호를 다시 입력해 주세요.">
             </div>
             <div class="input_tel">
-                <input type="text" id="tel1" class="tel" maxlength="3" onkeyup="FocusTel1()"> - <input type="text" id="tel2" class="tel" maxlength="4" onkeyup="FocusTel2()"> - <input type="text" id="tel3" class="tel" maxlength="4">
+                <input type="text" id="tel1" class="tel" maxlength="3" onkeyup="FocusTel1()"> - <input type="text" id="tel2" class="tel" maxlength="4" onkeyup="FocusTel2()"> - <input type="text" id="tel3" class="tel" maxlength="4" onkeyup="BtnAble()">
             </div>
             <div class="number_submit">
                 <div class="token_box">
                     <span id="token" class="token">00000</span>
                 <div class="btn_submit_box">
-                    <button id="btn_submit" class="btn_submit">인증번호 전송</button>
+                    <button disabled  id="btn_submit"  class="btn_submit" onclick="submitNum()">인증번호 전송</button>
                 </div>
             </div>
                 <div class="btn_complete-box">
