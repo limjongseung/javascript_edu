@@ -20,8 +20,6 @@ const RandomNum =()=>{
       if(time >=0){
         document.getElementById("timer").innerText = min +":"+sec;
       } else {
-        document.getElementById("myBtn").disabled =true;
-        isStarted = false;
         console.log("타이머 작동중");
         clearInterval(timer);
       }

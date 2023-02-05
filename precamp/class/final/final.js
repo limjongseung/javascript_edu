@@ -19,26 +19,41 @@ const BtnAble = () =>{
         document.getElementById("btn_complete").disabled = false;
     }
 }
+let isStarted = false;
 const submitNum = () =>{
-    document.getElementById("token").innerHTML =String( Math.floor(Math.random()*1000000)).padStart(6,"0");
-    let time = 10;
-    let timer 
-    timer = setInterval(function(){
-      let min = Math.floor(time/60);
-      let second = String(Math.floor(time%60)).padStart(2,"0")
-      time  = time -1;
-      if(time> 0){
-          document.getElementById("timer").innerText = min +":"+second;
-      } else{
-        clearInterval(timer);
-        time =180;
-      }
+    if(isStarted === false){
+        
+        document.getElementById("token").innerHTML =String( Math.floor(Math.random()*1000000)).padStart(6,"0");
+        let time = 10;
+        let timer 
+        timer = setInterval(function(){
+          let min = Math.floor(time/60);
+          let second = String(Math.floor(time%60)).padStart(2,"0")
+          time  = time -1;
+          if(time >=0){
+            document.getElementById("timer").innerText = min +":"+second;
+            document.getElementById("btn_complete").disabled =false;
+          } else{
+            document.getElementById("btn_complete").disabled =true;
+            isStarted = false;
+            time = 180;
+            document.getElementById("token").innerHTML = "000000"
+            clearInterval(timer);
+            min = Math.floor(time/60);
+            second = String(Math.floor(time%60)).padStart(2,"0")
+            document.getElementById("timer").innerText = min +":"+second;
+          }
     },1000)
-}
+} else{
+    //타이머가 작동중일때
 
+}
+};
+function Aler (){
+    alert("인증이 완료되었습니다.")
+}
+function ErCheck(){
+    alert("코드캠프 가입을 축하합니다.")
+}
  // 휴대전화를 인증번호 전송 버튼이 활성화 버튼을 누르면 토큰을 생성하여 화면에 보여주세요
  //3분 타이머도 동작해야 합니다.
-
-
-
-

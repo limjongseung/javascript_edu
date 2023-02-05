@@ -22,7 +22,7 @@
                 <input type="password" id="input_password_re" placeholder="비밀번호를 다시 입력해 주세요.">
             </div>
             <div class="input_tel">
-                <input type="text" id="tel1" class="tel" maxlength="3" onkeyup="FocusTel1()"> - <input type="text" id="tel2" class="tel" maxlength="4" onkeyup="FocusTel2()"> - <input type="text" id="tel3" class="tel" maxlength="4" onkeyup="BtnAble()">
+                <input type="text" id="tel1" class="tel" maxlength="3" onkeyup="FocusTel1()"> - <input type="text" id="tel2" class="tel" maxlength="4" onkeyup="FocusTel2()" > - <input type="text" id="tel3" class="tel" maxlength="4" onkeyup="BtnAble()" >
             </div>
             <div class="number_submit">
                 <div class="token_box">
@@ -36,7 +36,7 @@
                         <span id="min">3</span>:<span id="second">00</span>
                     </div>
                  <div class="btn_complete_box">
-                    <button id="btn_complete" class="btn_complete">인증 완료</button>
+                    <button id="btn_complete" class="btn_complete" onclick="Aler()">인증 완료</button>
                  </div>
                 </div>
                 <div class="local_box">
@@ -52,7 +52,7 @@
                     <label for="gender">남성</label>
                 </div>
                 <div class="register_box">
-                    <button id="register" class="register">가입하기</button>
+                    <button id="register" class="register" onclick="ErCheck()">가입하기</button>
                 </div>
             </div>
         </div>
