@@ -101,3 +101,8 @@ html, * {
     font-size: 18px;
     color: #0068FF;
 }
+
+button:disabled{
+    background: #d2d2d2;
+    color: black;
+}

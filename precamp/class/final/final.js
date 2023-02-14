@@ -21,8 +21,9 @@ const BtnAble = () =>{
 }
 let isStarted = false;
 const submitNum = () =>{
+    //타이머
     if(isStarted === false){
-        
+        isStarted = true;
         document.getElementById("token").innerHTML =String( Math.floor(Math.random()*1000000)).padStart(6,"0");
         let time = 10;
         let timer 
@@ -45,12 +46,16 @@ const submitNum = () =>{
           }
     },1000)
 } else{
-    //타이머가 작동중일때
+
 
 }
 };
+
 function Aler (){
     alert("인증이 완료되었습니다.")
+    document.getElementById("btn_complete").disabled =true;
+    isStarted = false;
+    time = 180;
 }
 function ErCheck(){
     alert("코드캠프 가입을 축하합니다.")
